@@ -421,46 +421,17 @@ struct FAnimNode_BlendSpaceGraph final : public FAnimNode_BlendSpaceGraphBase
 static_assert(alignof(FAnimNode_BlendSpaceGraph) == 0x000008, "Wrong alignment on FAnimNode_BlendSpaceGraph");
 static_assert(sizeof(FAnimNode_BlendSpaceGraph) == 0x000068, "Wrong size on FAnimNode_BlendSpaceGraph");
 
-// ScriptStruct AnimGraphRuntime.RandomPlayerSequenceEntry
-// 0x0050 (0x0050 - 0x0000)
-struct FRandomPlayerSequenceEntry final
+// ScriptStruct AnimGraphRuntime.AnimNode_BlendSpacePlayerBase
+// 0x0030 (0x0068 - 0x0038)
+struct FAnimNode_BlendSpacePlayerBase : public FAnimNode_AssetPlayerBase
 {
 public:
-	class UAnimSequence*                          Sequence;                                          // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ChanceToPlay;                                      // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MinLoopCount;                                      // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MaxLoopCount;                                      // 0x0010(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinPlayRate;                                       // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxPlayRate;                                       // 0x0018(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FAlphaBlend                            BlendIn;                                           // 0x0020(0x0030)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_38[0x28];                                      // 0x0038(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	class UBlendSpace*                            PreviousBlendSpace;                                // 0x0060(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 };
-static_assert(alignof(FRandomPlayerSequenceEntry) == 0x000008, "Wrong alignment on FRandomPlayerSequenceEntry");
-static_assert(sizeof(FRandomPlayerSequenceEntry) == 0x000050, "Wrong size on FRandomPlayerSequenceEntry");
-static_assert(offsetof(FRandomPlayerSequenceEntry, Sequence) == 0x000000, "Member 'FRandomPlayerSequenceEntry::Sequence' has a wrong offset!");
-static_assert(offsetof(FRandomPlayerSequenceEntry, ChanceToPlay) == 0x000008, "Member 'FRandomPlayerSequenceEntry::ChanceToPlay' has a wrong offset!");
-static_assert(offsetof(FRandomPlayerSequenceEntry, MinLoopCount) == 0x00000C, "Member 'FRandomPlayerSequenceEntry::MinLoopCount' has a wrong offset!");
-static_assert(offsetof(FRandomPlayerSequenceEntry, MaxLoopCount) == 0x000010, "Member 'FRandomPlayerSequenceEntry::MaxLoopCount' has a wrong offset!");
-static_assert(offsetof(FRandomPlayerSequenceEntry, MinPlayRate) == 0x000014, "Member 'FRandomPlayerSequenceEntry::MinPlayRate' has a wrong offset!");
-static_assert(offsetof(FRandomPlayerSequenceEntry, MaxPlayRate) == 0x000018, "Member 'FRandomPlayerSequenceEntry::MaxPlayRate' has a wrong offset!");
-static_assert(offsetof(FRandomPlayerSequenceEntry, BlendIn) == 0x000020, "Member 'FRandomPlayerSequenceEntry::BlendIn' has a wrong offset!");
-
-// ScriptStruct AnimGraphRuntime.AnimNode_RandomPlayer
-// 0x0068 (0x0078 - 0x0010)
-struct FAnimNode_RandomPlayer final : public FAnimNode_AssetPlayerRelevancyBase
-{
-public:
-	TArray<struct FRandomPlayerSequenceEntry>     Entries;                                           // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_20[0x50];                                      // 0x0020(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         BlendWeight;                                       // 0x0070(0x0004)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bShuffleMode;                                      // 0x0074(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_75[0x3];                                       // 0x0075(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FAnimNode_RandomPlayer) == 0x000008, "Wrong alignment on FAnimNode_RandomPlayer");
-static_assert(sizeof(FAnimNode_RandomPlayer) == 0x000078, "Wrong size on FAnimNode_RandomPlayer");
-static_assert(offsetof(FAnimNode_RandomPlayer, Entries) == 0x000010, "Member 'FAnimNode_RandomPlayer::Entries' has a wrong offset!");
-static_assert(offsetof(FAnimNode_RandomPlayer, BlendWeight) == 0x000070, "Member 'FAnimNode_RandomPlayer::BlendWeight' has a wrong offset!");
-static_assert(offsetof(FAnimNode_RandomPlayer, bShuffleMode) == 0x000074, "Member 'FAnimNode_RandomPlayer::bShuffleMode' has a wrong offset!");
+static_assert(alignof(FAnimNode_BlendSpacePlayerBase) == 0x000008, "Wrong alignment on FAnimNode_BlendSpacePlayerBase");
+static_assert(sizeof(FAnimNode_BlendSpacePlayerBase) == 0x000068, "Wrong size on FAnimNode_BlendSpacePlayerBase");
+static_assert(offsetof(FAnimNode_BlendSpacePlayerBase, PreviousBlendSpace) == 0x000060, "Member 'FAnimNode_BlendSpacePlayerBase::PreviousBlendSpace' has a wrong offset!");
 
 // ScriptStruct AnimGraphRuntime.AnimNode_SkeletalControlBase
 // 0x00B8 (0x00C8 - 0x0010)
@@ -863,18 +834,6 @@ struct FAnimationStateMachineReference final : public FAnimNodeReference
 };
 static_assert(alignof(FAnimationStateMachineReference) == 0x000008, "Wrong alignment on FAnimationStateMachineReference");
 static_assert(sizeof(FAnimationStateMachineReference) == 0x000010, "Wrong size on FAnimationStateMachineReference");
-
-// ScriptStruct AnimGraphRuntime.AnimNode_BlendSpacePlayerBase
-// 0x0030 (0x0068 - 0x0038)
-struct FAnimNode_BlendSpacePlayerBase : public FAnimNode_AssetPlayerBase
-{
-public:
-	uint8                                         Pad_38[0x28];                                      // 0x0038(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	class UBlendSpace*                            PreviousBlendSpace;                                // 0x0060(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-};
-static_assert(alignof(FAnimNode_BlendSpacePlayerBase) == 0x000008, "Wrong alignment on FAnimNode_BlendSpacePlayerBase");
-static_assert(sizeof(FAnimNode_BlendSpacePlayerBase) == 0x000068, "Wrong size on FAnimNode_BlendSpacePlayerBase");
-static_assert(offsetof(FAnimNode_BlendSpacePlayerBase, PreviousBlendSpace) == 0x000060, "Member 'FAnimNode_BlendSpacePlayerBase::PreviousBlendSpace' has a wrong offset!");
 
 // ScriptStruct AnimGraphRuntime.AnimNode_BlendSpacePlayer
 // 0x0008 (0x0070 - 0x0068)
@@ -1437,6 +1396,47 @@ static_assert(sizeof(FAnimNode_PoseSnapshot) == 0x000090, "Wrong size on FAnimNo
 static_assert(offsetof(FAnimNode_PoseSnapshot, SnapshotName) == 0x000010, "Member 'FAnimNode_PoseSnapshot::SnapshotName' has a wrong offset!");
 static_assert(offsetof(FAnimNode_PoseSnapshot, Snapshot) == 0x000018, "Member 'FAnimNode_PoseSnapshot::Snapshot' has a wrong offset!");
 static_assert(offsetof(FAnimNode_PoseSnapshot, Mode) == 0x000050, "Member 'FAnimNode_PoseSnapshot::Mode' has a wrong offset!");
+
+// ScriptStruct AnimGraphRuntime.RandomPlayerSequenceEntry
+// 0x0050 (0x0050 - 0x0000)
+struct FRandomPlayerSequenceEntry final
+{
+public:
+	class UAnimSequence*                          Sequence;                                          // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ChanceToPlay;                                      // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MinLoopCount;                                      // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MaxLoopCount;                                      // 0x0010(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MinPlayRate;                                       // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxPlayRate;                                       // 0x0018(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FAlphaBlend                            BlendIn;                                           // 0x0020(0x0030)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FRandomPlayerSequenceEntry) == 0x000008, "Wrong alignment on FRandomPlayerSequenceEntry");
+static_assert(sizeof(FRandomPlayerSequenceEntry) == 0x000050, "Wrong size on FRandomPlayerSequenceEntry");
+static_assert(offsetof(FRandomPlayerSequenceEntry, Sequence) == 0x000000, "Member 'FRandomPlayerSequenceEntry::Sequence' has a wrong offset!");
+static_assert(offsetof(FRandomPlayerSequenceEntry, ChanceToPlay) == 0x000008, "Member 'FRandomPlayerSequenceEntry::ChanceToPlay' has a wrong offset!");
+static_assert(offsetof(FRandomPlayerSequenceEntry, MinLoopCount) == 0x00000C, "Member 'FRandomPlayerSequenceEntry::MinLoopCount' has a wrong offset!");
+static_assert(offsetof(FRandomPlayerSequenceEntry, MaxLoopCount) == 0x000010, "Member 'FRandomPlayerSequenceEntry::MaxLoopCount' has a wrong offset!");
+static_assert(offsetof(FRandomPlayerSequenceEntry, MinPlayRate) == 0x000014, "Member 'FRandomPlayerSequenceEntry::MinPlayRate' has a wrong offset!");
+static_assert(offsetof(FRandomPlayerSequenceEntry, MaxPlayRate) == 0x000018, "Member 'FRandomPlayerSequenceEntry::MaxPlayRate' has a wrong offset!");
+static_assert(offsetof(FRandomPlayerSequenceEntry, BlendIn) == 0x000020, "Member 'FRandomPlayerSequenceEntry::BlendIn' has a wrong offset!");
+
+// ScriptStruct AnimGraphRuntime.AnimNode_RandomPlayer
+// 0x0068 (0x0078 - 0x0010)
+struct FAnimNode_RandomPlayer final : public FAnimNode_AssetPlayerRelevancyBase
+{
+public:
+	TArray<struct FRandomPlayerSequenceEntry>     Entries;                                           // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_20[0x50];                                      // 0x0020(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         BlendWeight;                                       // 0x0070(0x0004)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bShuffleMode;                                      // 0x0074(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_75[0x3];                                       // 0x0075(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FAnimNode_RandomPlayer) == 0x000008, "Wrong alignment on FAnimNode_RandomPlayer");
+static_assert(sizeof(FAnimNode_RandomPlayer) == 0x000078, "Wrong size on FAnimNode_RandomPlayer");
+static_assert(offsetof(FAnimNode_RandomPlayer, Entries) == 0x000010, "Member 'FAnimNode_RandomPlayer::Entries' has a wrong offset!");
+static_assert(offsetof(FAnimNode_RandomPlayer, BlendWeight) == 0x000070, "Member 'FAnimNode_RandomPlayer::BlendWeight' has a wrong offset!");
+static_assert(offsetof(FAnimNode_RandomPlayer, bShuffleMode) == 0x000074, "Member 'FAnimNode_RandomPlayer::bShuffleMode' has a wrong offset!");
 
 // ScriptStruct AnimGraphRuntime.AnimNode_RotateRootBone
 // 0x0098 (0x00A8 - 0x0010)

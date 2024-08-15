@@ -13,8 +13,8 @@
 #include "Pal_classes.hpp"
 #include "Engine_structs.hpp"
 #include "AIModule_structs.hpp"
-#include "CoreUObject_structs.hpp"
 #include "EOtomoFollowState_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 namespace SDK

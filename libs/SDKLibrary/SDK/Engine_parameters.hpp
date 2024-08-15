@@ -32796,9 +32796,9 @@ static_assert(sizeof(KismetMathLibrary_RGBLinearToHSV) == 0x000020, "Wrong size 
 static_assert(offsetof(KismetMathLibrary_RGBLinearToHSV, RGB) == 0x000000, "Member 'KismetMathLibrary_RGBLinearToHSV::RGB' has a wrong offset!");
 static_assert(offsetof(KismetMathLibrary_RGBLinearToHSV, ReturnValue) == 0x000010, "Member 'KismetMathLibrary_RGBLinearToHSV::ReturnValue' has a wrong offset!");
 
-// Function Engine.KismetMathLibrary.RGBToHSV
+// Function Engine.KismetMathLibrary.RGBtoHSV
 // 0x0020 (0x0020 - 0x0000)
-struct KismetMathLibrary_RGBToHSV final
+struct KismetMathLibrary_RGBtoHSV final
 {
 public:
 	struct FLinearColor                           InColor;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -32807,13 +32807,13 @@ public:
 	float                                         V;                                                 // 0x0018(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         A;                                                 // 0x001C(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(KismetMathLibrary_RGBToHSV) == 0x000004, "Wrong alignment on KismetMathLibrary_RGBToHSV");
-static_assert(sizeof(KismetMathLibrary_RGBToHSV) == 0x000020, "Wrong size on KismetMathLibrary_RGBToHSV");
-static_assert(offsetof(KismetMathLibrary_RGBToHSV, InColor) == 0x000000, "Member 'KismetMathLibrary_RGBToHSV::InColor' has a wrong offset!");
-static_assert(offsetof(KismetMathLibrary_RGBToHSV, H) == 0x000010, "Member 'KismetMathLibrary_RGBToHSV::H' has a wrong offset!");
-static_assert(offsetof(KismetMathLibrary_RGBToHSV, S) == 0x000014, "Member 'KismetMathLibrary_RGBToHSV::S' has a wrong offset!");
-static_assert(offsetof(KismetMathLibrary_RGBToHSV, V) == 0x000018, "Member 'KismetMathLibrary_RGBToHSV::V' has a wrong offset!");
-static_assert(offsetof(KismetMathLibrary_RGBToHSV, A) == 0x00001C, "Member 'KismetMathLibrary_RGBToHSV::A' has a wrong offset!");
+static_assert(alignof(KismetMathLibrary_RGBtoHSV) == 0x000004, "Wrong alignment on KismetMathLibrary_RGBtoHSV");
+static_assert(sizeof(KismetMathLibrary_RGBtoHSV) == 0x000020, "Wrong size on KismetMathLibrary_RGBtoHSV");
+static_assert(offsetof(KismetMathLibrary_RGBtoHSV, InColor) == 0x000000, "Member 'KismetMathLibrary_RGBtoHSV::InColor' has a wrong offset!");
+static_assert(offsetof(KismetMathLibrary_RGBtoHSV, H) == 0x000010, "Member 'KismetMathLibrary_RGBtoHSV::H' has a wrong offset!");
+static_assert(offsetof(KismetMathLibrary_RGBtoHSV, S) == 0x000014, "Member 'KismetMathLibrary_RGBtoHSV::S' has a wrong offset!");
+static_assert(offsetof(KismetMathLibrary_RGBtoHSV, V) == 0x000018, "Member 'KismetMathLibrary_RGBtoHSV::V' has a wrong offset!");
+static_assert(offsetof(KismetMathLibrary_RGBtoHSV, A) == 0x00001C, "Member 'KismetMathLibrary_RGBtoHSV::A' has a wrong offset!");
 
 // Function Engine.KismetMathLibrary.RGBToHSV_Vector
 // 0x0020 (0x0020 - 0x0000)

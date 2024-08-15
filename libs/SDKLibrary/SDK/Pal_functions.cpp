@@ -28178,6 +28178,104 @@ void APalPlayerController::ConfirmRequestGuild_ToClient(const struct FGuid& Flow
 }
 
 
+// Function Pal.PalPlayerController.DamageReactionComponent_ProcessDamage_ToServer_ToNPC
+// (Net, NetReliable, Native, Event, Public, NetServer)
+// Parameters:
+// struct FPalDamageInfo                   Info                                                   (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
+// class AActor*                           Defender                                               (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APalPlayerController::DamageReactionComponent_ProcessDamage_ToServer_ToNPC(const struct FPalDamageInfo& Info, const class AActor* Defender)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PalPlayerController", "DamageReactionComponent_ProcessDamage_ToServer_ToNPC");
+
+	Params::PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC Parms{};
+
+	Parms.Info = std::move(Info);
+	Parms.Defender = Defender;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Pal.PalPlayerController.DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer
+// (Net, NetReliable, Native, Event, Public, NetServer)
+// Parameters:
+// struct FPalDamageInfo                   Info                                                   (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
+// class AActor*                           DefenderOtomo                                          (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APalPlayerController::DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer(const struct FPalDamageInfo& Info, const class AActor* DefenderOtomo)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PalPlayerController", "DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer");
+
+	Params::PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer Parms{};
+
+	Parms.Info = std::move(Info);
+	Parms.DefenderOtomo = DefenderOtomo;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Pal.PalPlayerController.DamageReactionComponent_ProcessDeath_ToServer_ToNPC
+// (Net, NetReliable, Native, Event, Public, NetServer)
+// Parameters:
+// class AActor*                           TargetActor                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APalPlayerController::DamageReactionComponent_ProcessDeath_ToServer_ToNPC(const class AActor* TargetActor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PalPlayerController", "DamageReactionComponent_ProcessDeath_ToServer_ToNPC");
+
+	Params::PalPlayerController_DamageReactionComponent_ProcessDeath_ToServer_ToNPC Parms{};
+
+	Parms.TargetActor = TargetActor;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Pal.PalPlayerController.DamageReactionComponent_ProcessDeath_ToServer_ToSelfPlayer
+// (Net, NetReliable, Native, Event, Public, NetServer)
+
+void APalPlayerController::DamageReactionComponent_ProcessDeath_ToServer_ToSelfPlayer()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PalPlayerController", "DamageReactionComponent_ProcessDeath_ToServer_ToSelfPlayer");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Pal.PalPlayerController.Debug_AddExpForALLPlayer_ToServer
 // (Net, NetReliable, Native, Event, Public, NetServer)
 // Parameters:
@@ -53779,56 +53877,6 @@ void APalCharacter::ResetTickInterval()
 }
 
 
-// Function Pal.PalCharacter.ReviveCharacter
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FFixedPoint                      HP                                                     (Parm, NoDestructor, NativeAccessSpecifierPublic)
-
-void APalCharacter::ReviveCharacter(const struct FFixedPoint& HP)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PalCharacter", "ReviveCharacter");
-
-	Params::PalCharacter_ReviveCharacter Parms{};
-
-	Parms.HP = std::move(HP);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Pal.PalCharacter.ReviveCharacter_ToServer
-// (Net, NetReliable, Native, Event, Public, NetServer)
-// Parameters:
-// struct FFixedPoint                      HP                                                     (Parm, NoDestructor, NativeAccessSpecifierPublic)
-
-void APalCharacter::ReviveCharacter_ToServer(const struct FFixedPoint& HP)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PalCharacter", "ReviveCharacter_ToServer");
-
-	Params::PalCharacter_ReviveCharacter_ToServer Parms{};
-
-	Parms.HP = std::move(HP);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // DelegateFunction Pal.PalCharacter.RollingDelegate__DelegateSignature
 // (MulticastDelegate, Public, Delegate)
 
@@ -64852,6 +64900,56 @@ void UPalCheatManager::RepairEquipment()
 }
 
 
+// Function Pal.PalCheatManager.RequestDamageToBaseCampPoint
+// (Final, Exec, Native, Public)
+// Parameters:
+// int32                                   Value                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UPalCheatManager::RequestDamageToBaseCampPoint(const int32 Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PalCheatManager", "RequestDamageToBaseCampPoint");
+
+	Params::PalCheatManager_RequestDamageToBaseCampPoint Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Pal.PalCheatManager.RequestDamageToMapObjectInAllBaseCamp
+// (Final, Exec, Native, Public)
+// Parameters:
+// int32                                   Value                                                  (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UPalCheatManager::RequestDamageToMapObjectInAllBaseCamp(const int32 Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PalCheatManager", "RequestDamageToMapObjectInAllBaseCamp");
+
+	Params::PalCheatManager_RequestDamageToMapObjectInAllBaseCamp Parms{};
+
+	Parms.Value = Value;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Pal.PalCheatManager.RequestFillSlotChestFromInventory
 // (Final, Exec, Native, Public)
 
@@ -72523,50 +72621,6 @@ void UPalDamageReactionComponent::PopupDamageBySlipDamage_ToALL(int32 Damage)
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Pal.PalDamageReactionComponent.ProcessDamage_ToServer
-// (Final, Net, NetReliable, Native, Event, Private, NetServer)
-// Parameters:
-// struct FPalDamageInfo                   Info                                                   (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UPalDamageReactionComponent::ProcessDamage_ToServer(const struct FPalDamageInfo& Info)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PalDamageReactionComponent", "ProcessDamage_ToServer");
-
-	Params::PalDamageReactionComponent_ProcessDamage_ToServer Parms{};
-
-	Parms.Info = std::move(Info);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Pal.PalDamageReactionComponent.ProcessDeath_ToServer
-// (Final, Net, NetReliable, Native, Event, Private, NetServer)
-
-void UPalDamageReactionComponent::ProcessDeath_ToServer()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PalDamageReactionComponent", "ProcessDeath_ToServer");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -139009,33 +139063,6 @@ void APalPlayerState::Debug_ShutdownToClient()
 }
 
 
-// Function Pal.PalPlayerState.DropOtomoSingle_ToServer
-// (Final, Net, NetReliable, Native, Event, Private, NetServer, HasDefaults)
-// Parameters:
-// struct FVector                          DropLocation                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FPalInstanceID                   DropID                                                 (ConstParm, Parm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void APalPlayerState::DropOtomoSingle_ToServer(const struct FVector& DropLocation, const struct FPalInstanceID& DropID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PalPlayerState", "DropOtomoSingle_ToServer");
-
-	Params::PalPlayerState_DropOtomoSingle_ToServer Parms{};
-
-	Parms.DropLocation = std::move(DropLocation);
-	Parms.DropID = std::move(DropID);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // DelegateFunction Pal.PalPlayerState.EndCrimeDelegate__DelegateSignature
 // (MulticastDelegate, Public, Delegate, HasDefaults)
 // Parameters:
@@ -139208,31 +139235,6 @@ struct FPalPlayerInfoForMap APalPlayerState::GetPlayerInfoForMap()
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
-}
-
-
-// Function Pal.PalPlayerState.GrantExpForParty
-// (Net, NetReliable, Native, Event, Public, NetServer)
-// Parameters:
-// int32                                   ExpValue                                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void APalPlayerState::GrantExpForParty(const int32 ExpValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PalPlayerState", "GrantExpForParty");
-
-	Params::PalPlayerState_GrantExpForParty Parms{};
-
-	Parms.ExpValue = ExpValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
@@ -140328,58 +140330,6 @@ void APalPlayerState::SendAccountInitData_ForServer(const struct FPalPlayerAccou
 	Params::PalPlayerState_SendAccountInitData_ForServer Parms{};
 
 	Parms.AccountInitData = std::move(AccountInitData);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Pal.PalPlayerState.SendDamage_ToServer
-// (Net, NetReliable, Native, Event, Public, NetServer)
-// Parameters:
-// class APalCharacter*                    Target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FPalDamageInfo                   Info                                                   (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void APalPlayerState::SendDamage_ToServer(class APalCharacter* Target, const struct FPalDamageInfo& Info)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PalPlayerState", "SendDamage_ToServer");
-
-	Params::PalPlayerState_SendDamage_ToServer Parms{};
-
-	Parms.Target = Target;
-	Parms.Info = std::move(Info);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Pal.PalPlayerState.SendDeath_ToServer
-// (Net, NetReliable, Native, Event, Public, NetServer)
-// Parameters:
-// class APalCharacter*                    Target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void APalPlayerState::SendDeath_ToServer(class APalCharacter* Target)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PalPlayerState", "SendDeath_ToServer");
-
-	Params::PalPlayerState_SendDeath_ToServer Parms{};
-
-	Parms.Target = Target;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

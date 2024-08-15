@@ -11386,6 +11386,43 @@ static_assert(sizeof(PalPlayerController_ConfirmRequestGuild_ToClient) == 0x0000
 static_assert(offsetof(PalPlayerController_ConfirmRequestGuild_ToClient, FlowUniqueId) == 0x000000, "Member 'PalPlayerController_ConfirmRequestGuild_ToClient::FlowUniqueId' has a wrong offset!");
 static_assert(offsetof(PalPlayerController_ConfirmRequestGuild_ToClient, ConfirmType) == 0x000010, "Member 'PalPlayerController_ConfirmRequestGuild_ToClient::ConfirmType' has a wrong offset!");
 
+// Function Pal.PalPlayerController.DamageReactionComponent_ProcessDamage_ToServer_ToNPC
+// 0x00D8 (0x00D8 - 0x0000)
+struct PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC final
+{
+public:
+	struct FPalDamageInfo                         Info;                                              // 0x0000(0x00D0)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
+	const class AActor*                           Defender;                                          // 0x00D0(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC) == 0x000008, "Wrong alignment on PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC");
+static_assert(sizeof(PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC) == 0x0000D8, "Wrong size on PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC");
+static_assert(offsetof(PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC, Info) == 0x000000, "Member 'PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC::Info' has a wrong offset!");
+static_assert(offsetof(PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC, Defender) == 0x0000D0, "Member 'PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToNPC::Defender' has a wrong offset!");
+
+// Function Pal.PalPlayerController.DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer
+// 0x00D8 (0x00D8 - 0x0000)
+struct PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer final
+{
+public:
+	struct FPalDamageInfo                         Info;                                              // 0x0000(0x00D0)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
+	const class AActor*                           DefenderOtomo;                                     // 0x00D0(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer) == 0x000008, "Wrong alignment on PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer");
+static_assert(sizeof(PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer) == 0x0000D8, "Wrong size on PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer");
+static_assert(offsetof(PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer, Info) == 0x000000, "Member 'PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer::Info' has a wrong offset!");
+static_assert(offsetof(PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer, DefenderOtomo) == 0x0000D0, "Member 'PalPlayerController_DamageReactionComponent_ProcessDamage_ToServer_ToSelfPlayer::DefenderOtomo' has a wrong offset!");
+
+// Function Pal.PalPlayerController.DamageReactionComponent_ProcessDeath_ToServer_ToNPC
+// 0x0008 (0x0008 - 0x0000)
+struct PalPlayerController_DamageReactionComponent_ProcessDeath_ToServer_ToNPC final
+{
+public:
+	const class AActor*                           TargetActor;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PalPlayerController_DamageReactionComponent_ProcessDeath_ToServer_ToNPC) == 0x000008, "Wrong alignment on PalPlayerController_DamageReactionComponent_ProcessDeath_ToServer_ToNPC");
+static_assert(sizeof(PalPlayerController_DamageReactionComponent_ProcessDeath_ToServer_ToNPC) == 0x000008, "Wrong size on PalPlayerController_DamageReactionComponent_ProcessDeath_ToServer_ToNPC");
+static_assert(offsetof(PalPlayerController_DamageReactionComponent_ProcessDeath_ToServer_ToNPC, TargetActor) == 0x000000, "Member 'PalPlayerController_DamageReactionComponent_ProcessDeath_ToServer_ToNPC::TargetActor' has a wrong offset!");
+
 // Function Pal.PalPlayerController.Debug_AddExpForALLPlayer_ToServer
 // 0x0004 (0x0004 - 0x0000)
 struct PalPlayerController_Debug_AddExpForALLPlayer_ToServer final
@@ -22138,28 +22175,6 @@ static_assert(offsetof(PalCharacter_Play2Montage_WithPlayRate, FirstMontage) == 
 static_assert(offsetof(PalCharacter_Play2Montage_WithPlayRate, NextMontage) == 0x000008, "Member 'PalCharacter_Play2Montage_WithPlayRate::NextMontage' has a wrong offset!");
 static_assert(offsetof(PalCharacter_Play2Montage_WithPlayRate, PlayRate) == 0x000010, "Member 'PalCharacter_Play2Montage_WithPlayRate::PlayRate' has a wrong offset!");
 
-// Function Pal.PalCharacter.ReviveCharacter
-// 0x0004 (0x0004 - 0x0000)
-struct PalCharacter_ReviveCharacter final
-{
-public:
-	struct FFixedPoint                            HP;                                                // 0x0000(0x0004)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PalCharacter_ReviveCharacter) == 0x000004, "Wrong alignment on PalCharacter_ReviveCharacter");
-static_assert(sizeof(PalCharacter_ReviveCharacter) == 0x000004, "Wrong size on PalCharacter_ReviveCharacter");
-static_assert(offsetof(PalCharacter_ReviveCharacter, HP) == 0x000000, "Member 'PalCharacter_ReviveCharacter::HP' has a wrong offset!");
-
-// Function Pal.PalCharacter.ReviveCharacter_ToServer
-// 0x0004 (0x0004 - 0x0000)
-struct PalCharacter_ReviveCharacter_ToServer final
-{
-public:
-	struct FFixedPoint                            HP;                                                // 0x0000(0x0004)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PalCharacter_ReviveCharacter_ToServer) == 0x000004, "Wrong alignment on PalCharacter_ReviveCharacter_ToServer");
-static_assert(sizeof(PalCharacter_ReviveCharacter_ToServer) == 0x000004, "Wrong size on PalCharacter_ReviveCharacter_ToServer");
-static_assert(offsetof(PalCharacter_ReviveCharacter_ToServer, HP) == 0x000000, "Member 'PalCharacter_ReviveCharacter_ToServer::HP' has a wrong offset!");
-
 // Function Pal.PalCharacter.SetActiveActor
 // 0x0001 (0x0001 - 0x0000)
 struct PalCharacter_SetActiveActor final
@@ -26065,6 +26080,28 @@ static_assert(sizeof(PalCheatManager_RemovePlayerSkin) == 0x00000C, "Wrong size 
 static_assert(offsetof(PalCheatManager_RemovePlayerSkin, Part) == 0x000000, "Member 'PalCheatManager_RemovePlayerSkin::Part' has a wrong offset!");
 static_assert(offsetof(PalCheatManager_RemovePlayerSkin, InTarget) == 0x000004, "Member 'PalCheatManager_RemovePlayerSkin::InTarget' has a wrong offset!");
 
+// Function Pal.PalCheatManager.RequestDamageToBaseCampPoint
+// 0x0004 (0x0004 - 0x0000)
+struct PalCheatManager_RequestDamageToBaseCampPoint final
+{
+public:
+	int32                                         Value;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PalCheatManager_RequestDamageToBaseCampPoint) == 0x000004, "Wrong alignment on PalCheatManager_RequestDamageToBaseCampPoint");
+static_assert(sizeof(PalCheatManager_RequestDamageToBaseCampPoint) == 0x000004, "Wrong size on PalCheatManager_RequestDamageToBaseCampPoint");
+static_assert(offsetof(PalCheatManager_RequestDamageToBaseCampPoint, Value) == 0x000000, "Member 'PalCheatManager_RequestDamageToBaseCampPoint::Value' has a wrong offset!");
+
+// Function Pal.PalCheatManager.RequestDamageToMapObjectInAllBaseCamp
+// 0x0004 (0x0004 - 0x0000)
+struct PalCheatManager_RequestDamageToMapObjectInAllBaseCamp final
+{
+public:
+	int32                                         Value;                                             // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(PalCheatManager_RequestDamageToMapObjectInAllBaseCamp) == 0x000004, "Wrong alignment on PalCheatManager_RequestDamageToMapObjectInAllBaseCamp");
+static_assert(sizeof(PalCheatManager_RequestDamageToMapObjectInAllBaseCamp) == 0x000004, "Wrong size on PalCheatManager_RequestDamageToMapObjectInAllBaseCamp");
+static_assert(offsetof(PalCheatManager_RequestDamageToMapObjectInAllBaseCamp, Value) == 0x000000, "Member 'PalCheatManager_RequestDamageToMapObjectInAllBaseCamp::Value' has a wrong offset!");
+
 // Function Pal.PalCheatManager.SendChatToBroadcast
 // 0x0010 (0x0010 - 0x0000)
 struct PalCheatManager_SendChatToBroadcast final
@@ -28661,17 +28698,6 @@ public:
 static_assert(alignof(PalDamageReactionComponent_PopupDamageBySlipDamage_ToALL) == 0x000004, "Wrong alignment on PalDamageReactionComponent_PopupDamageBySlipDamage_ToALL");
 static_assert(sizeof(PalDamageReactionComponent_PopupDamageBySlipDamage_ToALL) == 0x000004, "Wrong size on PalDamageReactionComponent_PopupDamageBySlipDamage_ToALL");
 static_assert(offsetof(PalDamageReactionComponent_PopupDamageBySlipDamage_ToALL, Damage) == 0x000000, "Member 'PalDamageReactionComponent_PopupDamageBySlipDamage_ToALL::Damage' has a wrong offset!");
-
-// Function Pal.PalDamageReactionComponent.ProcessDamage_ToServer
-// 0x00D0 (0x00D0 - 0x0000)
-struct PalDamageReactionComponent_ProcessDamage_ToServer final
-{
-public:
-	struct FPalDamageInfo                         Info;                                              // 0x0000(0x00D0)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PalDamageReactionComponent_ProcessDamage_ToServer) == 0x000008, "Wrong alignment on PalDamageReactionComponent_ProcessDamage_ToServer");
-static_assert(sizeof(PalDamageReactionComponent_ProcessDamage_ToServer) == 0x0000D0, "Wrong size on PalDamageReactionComponent_ProcessDamage_ToServer");
-static_assert(offsetof(PalDamageReactionComponent_ProcessDamage_ToServer, Info) == 0x000000, "Member 'PalDamageReactionComponent_ProcessDamage_ToServer::Info' has a wrong offset!");
 
 // Function Pal.PalDamageReactionComponent.ShowDeadDebugLog
 // 0x0050 (0x0050 - 0x0000)
@@ -58104,19 +58130,6 @@ static_assert(alignof(PalPlayerState_Debug_RequestStopAICheckOfCharacter_ToServe
 static_assert(sizeof(PalPlayerState_Debug_RequestStopAICheckOfCharacter_ToServer) == 0x000008, "Wrong size on PalPlayerState_Debug_RequestStopAICheckOfCharacter_ToServer");
 static_assert(offsetof(PalPlayerState_Debug_RequestStopAICheckOfCharacter_ToServer, TargetCharacter) == 0x000000, "Member 'PalPlayerState_Debug_RequestStopAICheckOfCharacter_ToServer::TargetCharacter' has a wrong offset!");
 
-// Function Pal.PalPlayerState.DropOtomoSingle_ToServer
-// 0x0048 (0x0048 - 0x0000)
-struct PalPlayerState_DropOtomoSingle_ToServer final
-{
-public:
-	struct FVector                                DropLocation;                                      // 0x0000(0x0018)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPalInstanceID                         DropID;                                            // 0x0018(0x0030)(ConstParm, Parm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PalPlayerState_DropOtomoSingle_ToServer) == 0x000008, "Wrong alignment on PalPlayerState_DropOtomoSingle_ToServer");
-static_assert(sizeof(PalPlayerState_DropOtomoSingle_ToServer) == 0x000048, "Wrong size on PalPlayerState_DropOtomoSingle_ToServer");
-static_assert(offsetof(PalPlayerState_DropOtomoSingle_ToServer, DropLocation) == 0x000000, "Member 'PalPlayerState_DropOtomoSingle_ToServer::DropLocation' has a wrong offset!");
-static_assert(offsetof(PalPlayerState_DropOtomoSingle_ToServer, DropID) == 0x000018, "Member 'PalPlayerState_DropOtomoSingle_ToServer::DropID' has a wrong offset!");
-
 // DelegateFunction Pal.PalPlayerState.EndCrimeDelegate__DelegateSignature
 // 0x0010 (0x0010 - 0x0000)
 struct PalPlayerState_EndCrimeDelegate__DelegateSignature final
@@ -58198,17 +58211,6 @@ public:
 static_assert(alignof(PalPlayerState_GetPlayerInfoForMap) == 0x000010, "Wrong alignment on PalPlayerState_GetPlayerInfoForMap");
 static_assert(sizeof(PalPlayerState_GetPlayerInfoForMap) == 0x000070, "Wrong size on PalPlayerState_GetPlayerInfoForMap");
 static_assert(offsetof(PalPlayerState_GetPlayerInfoForMap, ReturnValue) == 0x000000, "Member 'PalPlayerState_GetPlayerInfoForMap::ReturnValue' has a wrong offset!");
-
-// Function Pal.PalPlayerState.GrantExpForParty
-// 0x0004 (0x0004 - 0x0000)
-struct PalPlayerState_GrantExpForParty final
-{
-public:
-	int32                                         ExpValue;                                          // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PalPlayerState_GrantExpForParty) == 0x000004, "Wrong alignment on PalPlayerState_GrantExpForParty");
-static_assert(sizeof(PalPlayerState_GrantExpForParty) == 0x000004, "Wrong size on PalPlayerState_GrantExpForParty");
-static_assert(offsetof(PalPlayerState_GrantExpForParty, ExpValue) == 0x000000, "Member 'PalPlayerState_GrantExpForParty::ExpValue' has a wrong offset!");
 
 // Function Pal.PalPlayerState.IsCompleteLoadInitWorldPartition
 // 0x0001 (0x0001 - 0x0000)
@@ -58599,30 +58601,6 @@ public:
 static_assert(alignof(PalPlayerState_SendAccountInitData_ForServer) == 0x000008, "Wrong alignment on PalPlayerState_SendAccountInitData_ForServer");
 static_assert(sizeof(PalPlayerState_SendAccountInitData_ForServer) == 0x000160, "Wrong size on PalPlayerState_SendAccountInitData_ForServer");
 static_assert(offsetof(PalPlayerState_SendAccountInitData_ForServer, AccountInitData) == 0x000000, "Member 'PalPlayerState_SendAccountInitData_ForServer::AccountInitData' has a wrong offset!");
-
-// Function Pal.PalPlayerState.SendDamage_ToServer
-// 0x00D8 (0x00D8 - 0x0000)
-struct PalPlayerState_SendDamage_ToServer final
-{
-public:
-	class APalCharacter*                          Target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPalDamageInfo                         Info;                                              // 0x0008(0x00D0)(ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PalPlayerState_SendDamage_ToServer) == 0x000008, "Wrong alignment on PalPlayerState_SendDamage_ToServer");
-static_assert(sizeof(PalPlayerState_SendDamage_ToServer) == 0x0000D8, "Wrong size on PalPlayerState_SendDamage_ToServer");
-static_assert(offsetof(PalPlayerState_SendDamage_ToServer, Target) == 0x000000, "Member 'PalPlayerState_SendDamage_ToServer::Target' has a wrong offset!");
-static_assert(offsetof(PalPlayerState_SendDamage_ToServer, Info) == 0x000008, "Member 'PalPlayerState_SendDamage_ToServer::Info' has a wrong offset!");
-
-// Function Pal.PalPlayerState.SendDeath_ToServer
-// 0x0008 (0x0008 - 0x0000)
-struct PalPlayerState_SendDeath_ToServer final
-{
-public:
-	class APalCharacter*                          Target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(PalPlayerState_SendDeath_ToServer) == 0x000008, "Wrong alignment on PalPlayerState_SendDeath_ToServer");
-static_assert(sizeof(PalPlayerState_SendDeath_ToServer) == 0x000008, "Wrong size on PalPlayerState_SendDeath_ToServer");
-static_assert(offsetof(PalPlayerState_SendDeath_ToServer, Target) == 0x000000, "Member 'PalPlayerState_SendDeath_ToServer::Target' has a wrong offset!");
 
 // Function Pal.PalPlayerState.ShowBossDefeatRewardUI
 // 0x0004 (0x0004 - 0x0000)

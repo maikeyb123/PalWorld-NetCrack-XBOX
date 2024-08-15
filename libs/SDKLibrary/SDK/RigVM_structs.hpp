@@ -205,6 +205,28 @@ enum class ERigVMUserWorkflowType : uint8
 	ERigVMUserWorkflowType_MAX               = 8,
 };
 
+// ScriptStruct RigVM.RigVMStruct
+// 0x0008 (0x0008 - 0x0000)
+struct alignas(0x08) FRigVMStruct
+{
+public:
+	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FRigVMStruct) == 0x000008, "Wrong alignment on FRigVMStruct");
+static_assert(sizeof(FRigVMStruct) == 0x000008, "Wrong size on FRigVMStruct");
+
+// ScriptStruct RigVM.RigVMRuntimeSettings
+// 0x0018 (0x0018 - 0x0000)
+struct alignas(0x08) FRigVMRuntimeSettings final
+{
+public:
+	int32                                         MaximumArraySize;                                  // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x14];                                       // 0x0004(0x0014)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FRigVMRuntimeSettings) == 0x000008, "Wrong alignment on FRigVMRuntimeSettings");
+static_assert(sizeof(FRigVMRuntimeSettings) == 0x000018, "Wrong size on FRigVMRuntimeSettings");
+static_assert(offsetof(FRigVMRuntimeSettings, MaximumArraySize) == 0x000000, "Member 'FRigVMRuntimeSettings::MaximumArraySize' has a wrong offset!");
+
 // ScriptStruct RigVM.RigVMMemoryStatistics
 // 0x000C (0x000C - 0x0000)
 struct FRigVMMemoryStatistics final
@@ -256,18 +278,6 @@ static_assert(offsetof(FRigVMStatistics, DebugMemory) == 0x000020, "Member 'FRig
 static_assert(offsetof(FRigVMStatistics, BytesForCaching) == 0x00002C, "Member 'FRigVMStatistics::BytesForCaching' has a wrong offset!");
 static_assert(offsetof(FRigVMStatistics, ByteCode) == 0x000030, "Member 'FRigVMStatistics::ByteCode' has a wrong offset!");
 
-// ScriptStruct RigVM.RigVMRuntimeSettings
-// 0x0018 (0x0018 - 0x0000)
-struct alignas(0x08) FRigVMRuntimeSettings final
-{
-public:
-	int32                                         MaximumArraySize;                                  // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x14];                                       // 0x0004(0x0014)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FRigVMRuntimeSettings) == 0x000008, "Wrong alignment on FRigVMRuntimeSettings");
-static_assert(sizeof(FRigVMRuntimeSettings) == 0x000018, "Wrong size on FRigVMRuntimeSettings");
-static_assert(offsetof(FRigVMRuntimeSettings, MaximumArraySize) == 0x000000, "Member 'FRigVMRuntimeSettings::MaximumArraySize' has a wrong offset!");
-
 // ScriptStruct RigVM.RigVMExecuteContext
 // 0x0030 (0x0030 - 0x0000)
 struct alignas(0x08) FRigVMExecuteContext
@@ -278,46 +288,6 @@ public:
 static_assert(alignof(FRigVMExecuteContext) == 0x000008, "Wrong alignment on FRigVMExecuteContext");
 static_assert(sizeof(FRigVMExecuteContext) == 0x000030, "Wrong size on FRigVMExecuteContext");
 
-// ScriptStruct RigVM.RigVMStruct
-// 0x0008 (0x0008 - 0x0000)
-struct alignas(0x08) FRigVMStruct
-{
-public:
-	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FRigVMStruct) == 0x000008, "Wrong alignment on FRigVMStruct");
-static_assert(sizeof(FRigVMStruct) == 0x000008, "Wrong size on FRigVMStruct");
-
-// ScriptStruct RigVM.RigVMByteCodeEntry
-// 0x000C (0x000C - 0x0000)
-struct FRigVMByteCodeEntry final
-{
-public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         InstructionIndex;                                  // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FRigVMByteCodeEntry) == 0x000004, "Wrong alignment on FRigVMByteCodeEntry");
-static_assert(sizeof(FRigVMByteCodeEntry) == 0x00000C, "Wrong size on FRigVMByteCodeEntry");
-static_assert(offsetof(FRigVMByteCodeEntry, Name) == 0x000000, "Member 'FRigVMByteCodeEntry::Name' has a wrong offset!");
-static_assert(offsetof(FRigVMByteCodeEntry, InstructionIndex) == 0x000008, "Member 'FRigVMByteCodeEntry::InstructionIndex' has a wrong offset!");
-
-// ScriptStruct RigVM.RigVMByteCode
-// 0x0030 (0x0030 - 0x0000)
-struct FRigVMByteCode final
-{
-public:
-	TArray<uint8>                                 ByteCode;                                          // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	int32                                         NumInstructions;                                   // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FRigVMByteCodeEntry>            Entries;                                           // 0x0018(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FRigVMByteCode) == 0x000008, "Wrong alignment on FRigVMByteCode");
-static_assert(sizeof(FRigVMByteCode) == 0x000030, "Wrong size on FRigVMByteCode");
-static_assert(offsetof(FRigVMByteCode, ByteCode) == 0x000000, "Member 'FRigVMByteCode::ByteCode' has a wrong offset!");
-static_assert(offsetof(FRigVMByteCode, NumInstructions) == 0x000010, "Member 'FRigVMByteCode::NumInstructions' has a wrong offset!");
-static_assert(offsetof(FRigVMByteCode, Entries) == 0x000018, "Member 'FRigVMByteCode::Entries' has a wrong offset!");
-
 // ScriptStruct RigVM.RigVMDispatchFactory
 // 0x0018 (0x0018 - 0x0000)
 struct alignas(0x08) FRigVMDispatchFactory
@@ -327,6 +297,34 @@ public:
 };
 static_assert(alignof(FRigVMDispatchFactory) == 0x000008, "Wrong alignment on FRigVMDispatchFactory");
 static_assert(sizeof(FRigVMDispatchFactory) == 0x000018, "Wrong size on FRigVMDispatchFactory");
+
+// ScriptStruct RigVM.RigVMRegisterOffset
+// 0x0048 (0x0048 - 0x0000)
+struct FRigVMRegisterOffset final
+{
+public:
+	TArray<int32>                                 Segments;                                          // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	ERigVMRegisterType                            Type;                                              // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   CPPType;                                           // 0x0014(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UScriptStruct*                          ScriptStruct;                                      // 0x0020(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UScriptStruct*                          ParentScriptStruct;                                // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	int32                                         ArrayIndex;                                        // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint16                                        ElementSize;                                       // 0x0034(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_36[0x2];                                       // 0x0036(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 CachedSegmentPath;                                 // 0x0038(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+static_assert(alignof(FRigVMRegisterOffset) == 0x000008, "Wrong alignment on FRigVMRegisterOffset");
+static_assert(sizeof(FRigVMRegisterOffset) == 0x000048, "Wrong size on FRigVMRegisterOffset");
+static_assert(offsetof(FRigVMRegisterOffset, Segments) == 0x000000, "Member 'FRigVMRegisterOffset::Segments' has a wrong offset!");
+static_assert(offsetof(FRigVMRegisterOffset, Type) == 0x000010, "Member 'FRigVMRegisterOffset::Type' has a wrong offset!");
+static_assert(offsetof(FRigVMRegisterOffset, CPPType) == 0x000014, "Member 'FRigVMRegisterOffset::CPPType' has a wrong offset!");
+static_assert(offsetof(FRigVMRegisterOffset, ScriptStruct) == 0x000020, "Member 'FRigVMRegisterOffset::ScriptStruct' has a wrong offset!");
+static_assert(offsetof(FRigVMRegisterOffset, ParentScriptStruct) == 0x000028, "Member 'FRigVMRegisterOffset::ParentScriptStruct' has a wrong offset!");
+static_assert(offsetof(FRigVMRegisterOffset, ArrayIndex) == 0x000030, "Member 'FRigVMRegisterOffset::ArrayIndex' has a wrong offset!");
+static_assert(offsetof(FRigVMRegisterOffset, ElementSize) == 0x000034, "Member 'FRigVMRegisterOffset::ElementSize' has a wrong offset!");
+static_assert(offsetof(FRigVMRegisterOffset, CachedSegmentPath) == 0x000038, "Member 'FRigVMRegisterOffset::CachedSegmentPath' has a wrong offset!");
 
 // ScriptStruct RigVM.RigVMUnknownType
 // 0x0004 (0x0004 - 0x0000)
@@ -526,6 +524,36 @@ static_assert(alignof(FRigVMInstructionArray) == 0x000008, "Wrong alignment on F
 static_assert(sizeof(FRigVMInstructionArray) == 0x000010, "Wrong size on FRigVMInstructionArray");
 static_assert(offsetof(FRigVMInstructionArray, Instructions) == 0x000000, "Member 'FRigVMInstructionArray::Instructions' has a wrong offset!");
 
+// ScriptStruct RigVM.RigVMByteCodeEntry
+// 0x000C (0x000C - 0x0000)
+struct FRigVMByteCodeEntry final
+{
+public:
+	class FName                                   Name;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         InstructionIndex;                                  // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FRigVMByteCodeEntry) == 0x000004, "Wrong alignment on FRigVMByteCodeEntry");
+static_assert(sizeof(FRigVMByteCodeEntry) == 0x00000C, "Wrong size on FRigVMByteCodeEntry");
+static_assert(offsetof(FRigVMByteCodeEntry, Name) == 0x000000, "Member 'FRigVMByteCodeEntry::Name' has a wrong offset!");
+static_assert(offsetof(FRigVMByteCodeEntry, InstructionIndex) == 0x000008, "Member 'FRigVMByteCodeEntry::InstructionIndex' has a wrong offset!");
+
+// ScriptStruct RigVM.RigVMByteCode
+// 0x0030 (0x0030 - 0x0000)
+struct FRigVMByteCode final
+{
+public:
+	TArray<uint8>                                 ByteCode;                                          // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	int32                                         NumInstructions;                                   // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FRigVMByteCodeEntry>            Entries;                                           // 0x0018(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FRigVMByteCode) == 0x000008, "Wrong alignment on FRigVMByteCode");
+static_assert(sizeof(FRigVMByteCode) == 0x000030, "Wrong size on FRigVMByteCode");
+static_assert(offsetof(FRigVMByteCode, ByteCode) == 0x000000, "Member 'FRigVMByteCode::ByteCode' has a wrong offset!");
+static_assert(offsetof(FRigVMByteCode, NumInstructions) == 0x000010, "Member 'FRigVMByteCode::NumInstructions' has a wrong offset!");
+static_assert(offsetof(FRigVMByteCode, Entries) == 0x000018, "Member 'FRigVMByteCode::Entries' has a wrong offset!");
+
 // ScriptStruct RigVM.RigVMBreakpoint
 // 0x0028 (0x0028 - 0x0000)
 struct alignas(0x08) FRigVMBreakpoint final
@@ -616,34 +644,6 @@ static_assert(offsetof(FRigVMRegister, Name) == 0x000014, "Member 'FRigVMRegiste
 static_assert(offsetof(FRigVMRegister, ScriptStructIndex) == 0x00001C, "Member 'FRigVMRegister::ScriptStructIndex' has a wrong offset!");
 static_assert(offsetof(FRigVMRegister, bIsArray) == 0x000020, "Member 'FRigVMRegister::bIsArray' has a wrong offset!");
 static_assert(offsetof(FRigVMRegister, bIsDynamic) == 0x000021, "Member 'FRigVMRegister::bIsDynamic' has a wrong offset!");
-
-// ScriptStruct RigVM.RigVMRegisterOffset
-// 0x0048 (0x0048 - 0x0000)
-struct FRigVMRegisterOffset final
-{
-public:
-	TArray<int32>                                 Segments;                                          // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	ERigVMRegisterType                            Type;                                              // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   CPPType;                                           // 0x0014(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UScriptStruct*                          ScriptStruct;                                      // 0x0020(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UScriptStruct*                          ParentScriptStruct;                                // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         ArrayIndex;                                        // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint16                                        ElementSize;                                       // 0x0034(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_36[0x2];                                       // 0x0036(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 CachedSegmentPath;                                 // 0x0038(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-static_assert(alignof(FRigVMRegisterOffset) == 0x000008, "Wrong alignment on FRigVMRegisterOffset");
-static_assert(sizeof(FRigVMRegisterOffset) == 0x000048, "Wrong size on FRigVMRegisterOffset");
-static_assert(offsetof(FRigVMRegisterOffset, Segments) == 0x000000, "Member 'FRigVMRegisterOffset::Segments' has a wrong offset!");
-static_assert(offsetof(FRigVMRegisterOffset, Type) == 0x000010, "Member 'FRigVMRegisterOffset::Type' has a wrong offset!");
-static_assert(offsetof(FRigVMRegisterOffset, CPPType) == 0x000014, "Member 'FRigVMRegisterOffset::CPPType' has a wrong offset!");
-static_assert(offsetof(FRigVMRegisterOffset, ScriptStruct) == 0x000020, "Member 'FRigVMRegisterOffset::ScriptStruct' has a wrong offset!");
-static_assert(offsetof(FRigVMRegisterOffset, ParentScriptStruct) == 0x000028, "Member 'FRigVMRegisterOffset::ParentScriptStruct' has a wrong offset!");
-static_assert(offsetof(FRigVMRegisterOffset, ArrayIndex) == 0x000030, "Member 'FRigVMRegisterOffset::ArrayIndex' has a wrong offset!");
-static_assert(offsetof(FRigVMRegisterOffset, ElementSize) == 0x000034, "Member 'FRigVMRegisterOffset::ElementSize' has a wrong offset!");
-static_assert(offsetof(FRigVMRegisterOffset, CachedSegmentPath) == 0x000038, "Member 'FRigVMRegisterOffset::CachedSegmentPath' has a wrong offset!");
 
 // ScriptStruct RigVM.RigVMMemoryContainer
 // 0x00A0 (0x00A0 - 0x0000)

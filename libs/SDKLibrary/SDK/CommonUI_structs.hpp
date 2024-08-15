@@ -77,20 +77,6 @@ enum class ETransitionCurve : uint8
 	ETransitionCurve_MAX                     = 7,
 };
 
-// ScriptStruct CommonUI.CommonInputActionHandlerData
-// 0x0020 (0x0020 - 0x0000)
-struct FCommonInputActionHandlerData final
-{
-public:
-	struct FDataTableRowHandle                    InputActionRow;                                    // 0x0000(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	EInputActionState                             State;                                             // 0x0010(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_11[0xF];                                       // 0x0011(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FCommonInputActionHandlerData) == 0x000008, "Wrong alignment on FCommonInputActionHandlerData");
-static_assert(sizeof(FCommonInputActionHandlerData) == 0x000020, "Wrong size on FCommonInputActionHandlerData");
-static_assert(offsetof(FCommonInputActionHandlerData, InputActionRow) == 0x000000, "Member 'FCommonInputActionHandlerData::InputActionRow' has a wrong offset!");
-static_assert(offsetof(FCommonInputActionHandlerData, State) == 0x000010, "Member 'FCommonInputActionHandlerData::State' has a wrong offset!");
-
 // ScriptStruct CommonUI.CommonNumberFormattingOptions
 // 0x0014 (0x0014 - 0x0000)
 struct FCommonNumberFormattingOptions final
@@ -112,20 +98,6 @@ static_assert(offsetof(FCommonNumberFormattingOptions, MinimumIntegralDigits) ==
 static_assert(offsetof(FCommonNumberFormattingOptions, MaximumIntegralDigits) == 0x000008, "Member 'FCommonNumberFormattingOptions::MaximumIntegralDigits' has a wrong offset!");
 static_assert(offsetof(FCommonNumberFormattingOptions, MinimumFractionalDigits) == 0x00000C, "Member 'FCommonNumberFormattingOptions::MinimumFractionalDigits' has a wrong offset!");
 static_assert(offsetof(FCommonNumberFormattingOptions, MaximumFractionalDigits) == 0x000010, "Member 'FCommonNumberFormattingOptions::MaximumFractionalDigits' has a wrong offset!");
-
-// ScriptStruct CommonUI.CommonButtonStyleOptionalSlateSound
-// 0x0020 (0x0020 - 0x0000)
-struct FCommonButtonStyleOptionalSlateSound final
-{
-public:
-	bool                                          bHasSound;                                         // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSlateSound                            Sound;                                             // 0x0008(0x0018)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FCommonButtonStyleOptionalSlateSound) == 0x000008, "Wrong alignment on FCommonButtonStyleOptionalSlateSound");
-static_assert(sizeof(FCommonButtonStyleOptionalSlateSound) == 0x000020, "Wrong size on FCommonButtonStyleOptionalSlateSound");
-static_assert(offsetof(FCommonButtonStyleOptionalSlateSound, bHasSound) == 0x000000, "Member 'FCommonButtonStyleOptionalSlateSound::bHasSound' has a wrong offset!");
-static_assert(offsetof(FCommonButtonStyleOptionalSlateSound, Sound) == 0x000008, "Member 'FCommonButtonStyleOptionalSlateSound::Sound' has a wrong offset!");
 
 // ScriptStruct CommonUI.CommonRegisteredTabInfo
 // 0x0018 (0x0018 - 0x0000)
@@ -158,6 +130,34 @@ struct FUIActionTag final : public FUITag
 };
 static_assert(alignof(FUIActionTag) == 0x000004, "Wrong alignment on FUIActionTag");
 static_assert(sizeof(FUIActionTag) == 0x000008, "Wrong size on FUIActionTag");
+
+// ScriptStruct CommonUI.CommonInputActionHandlerData
+// 0x0020 (0x0020 - 0x0000)
+struct FCommonInputActionHandlerData final
+{
+public:
+	struct FDataTableRowHandle                    InputActionRow;                                    // 0x0000(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	EInputActionState                             State;                                             // 0x0010(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_11[0xF];                                       // 0x0011(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FCommonInputActionHandlerData) == 0x000008, "Wrong alignment on FCommonInputActionHandlerData");
+static_assert(sizeof(FCommonInputActionHandlerData) == 0x000020, "Wrong size on FCommonInputActionHandlerData");
+static_assert(offsetof(FCommonInputActionHandlerData, InputActionRow) == 0x000000, "Member 'FCommonInputActionHandlerData::InputActionRow' has a wrong offset!");
+static_assert(offsetof(FCommonInputActionHandlerData, State) == 0x000010, "Member 'FCommonInputActionHandlerData::State' has a wrong offset!");
+
+// ScriptStruct CommonUI.CommonButtonStyleOptionalSlateSound
+// 0x0020 (0x0020 - 0x0000)
+struct FCommonButtonStyleOptionalSlateSound final
+{
+public:
+	bool                                          bHasSound;                                         // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSlateSound                            Sound;                                             // 0x0008(0x0018)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FCommonButtonStyleOptionalSlateSound) == 0x000008, "Wrong alignment on FCommonButtonStyleOptionalSlateSound");
+static_assert(sizeof(FCommonButtonStyleOptionalSlateSound) == 0x000020, "Wrong size on FCommonButtonStyleOptionalSlateSound");
+static_assert(offsetof(FCommonButtonStyleOptionalSlateSound, bHasSound) == 0x000000, "Member 'FCommonButtonStyleOptionalSlateSound::bHasSound' has a wrong offset!");
+static_assert(offsetof(FCommonButtonStyleOptionalSlateSound, Sound) == 0x000008, "Member 'FCommonButtonStyleOptionalSlateSound::Sound' has a wrong offset!");
 
 // ScriptStruct CommonUI.RichTextIconData
 // 0x0058 (0x0060 - 0x0008)

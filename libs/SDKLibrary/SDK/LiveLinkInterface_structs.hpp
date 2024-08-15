@@ -113,19 +113,21 @@ static_assert(offsetof(FLiveLinkSubjectPreset, Settings) == 0x000020, "Member 'F
 static_assert(offsetof(FLiveLinkSubjectPreset, VirtualSubject) == 0x000028, "Member 'FLiveLinkSubjectPreset::VirtualSubject' has a wrong offset!");
 static_assert(offsetof(FLiveLinkSubjectPreset, bEnabled) == 0x000030, "Member 'FLiveLinkSubjectPreset::bEnabled' has a wrong offset!");
 
-// ScriptStruct LiveLinkInterface.LiveLinkInterpolationSettings
-// 0x0008 (0x0008 - 0x0000)
-struct FLiveLinkInterpolationSettings final
+// ScriptStruct LiveLinkInterface.LiveLinkTransformStaticData
+// 0x0008 (0x0018 - 0x0010)
+struct FLiveLinkTransformStaticData : public FLiveLinkBaseStaticData
 {
 public:
-	bool                                          bUseInterpolation;                                 // 0x0000(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         InterpolationOffset;                               // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsLocationSupported;                              // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsRotationSupported;                              // 0x0011(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsScaleSupported;                                 // 0x0012(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_13[0x5];                                       // 0x0013(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FLiveLinkInterpolationSettings) == 0x000004, "Wrong alignment on FLiveLinkInterpolationSettings");
-static_assert(sizeof(FLiveLinkInterpolationSettings) == 0x000008, "Wrong size on FLiveLinkInterpolationSettings");
-static_assert(offsetof(FLiveLinkInterpolationSettings, bUseInterpolation) == 0x000000, "Member 'FLiveLinkInterpolationSettings::bUseInterpolation' has a wrong offset!");
-static_assert(offsetof(FLiveLinkInterpolationSettings, InterpolationOffset) == 0x000004, "Member 'FLiveLinkInterpolationSettings::InterpolationOffset' has a wrong offset!");
+static_assert(alignof(FLiveLinkTransformStaticData) == 0x000008, "Wrong alignment on FLiveLinkTransformStaticData");
+static_assert(sizeof(FLiveLinkTransformStaticData) == 0x000018, "Wrong size on FLiveLinkTransformStaticData");
+static_assert(offsetof(FLiveLinkTransformStaticData, bIsLocationSupported) == 0x000010, "Member 'FLiveLinkTransformStaticData::bIsLocationSupported' has a wrong offset!");
+static_assert(offsetof(FLiveLinkTransformStaticData, bIsRotationSupported) == 0x000011, "Member 'FLiveLinkTransformStaticData::bIsRotationSupported' has a wrong offset!");
+static_assert(offsetof(FLiveLinkTransformStaticData, bIsScaleSupported) == 0x000012, "Member 'FLiveLinkTransformStaticData::bIsScaleSupported' has a wrong offset!");
 
 // ScriptStruct LiveLinkInterface.LiveLinkSourceHandle
 // 0x0018 (0x0018 - 0x0000)
@@ -212,22 +214,6 @@ static_assert(alignof(FLiveLinkBasicBlueprintData) == 0x000008, "Wrong alignment
 static_assert(sizeof(FLiveLinkBasicBlueprintData) == 0x0000B8, "Wrong size on FLiveLinkBasicBlueprintData");
 static_assert(offsetof(FLiveLinkBasicBlueprintData, StaticData) == 0x000008, "Member 'FLiveLinkBasicBlueprintData::StaticData' has a wrong offset!");
 static_assert(offsetof(FLiveLinkBasicBlueprintData, FrameData) == 0x000018, "Member 'FLiveLinkBasicBlueprintData::FrameData' has a wrong offset!");
-
-// ScriptStruct LiveLinkInterface.LiveLinkTransformStaticData
-// 0x0008 (0x0018 - 0x0010)
-struct FLiveLinkTransformStaticData : public FLiveLinkBaseStaticData
-{
-public:
-	bool                                          bIsLocationSupported;                              // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsRotationSupported;                              // 0x0011(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsScaleSupported;                                 // 0x0012(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_13[0x5];                                       // 0x0013(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FLiveLinkTransformStaticData) == 0x000008, "Wrong alignment on FLiveLinkTransformStaticData");
-static_assert(sizeof(FLiveLinkTransformStaticData) == 0x000018, "Wrong size on FLiveLinkTransformStaticData");
-static_assert(offsetof(FLiveLinkTransformStaticData, bIsLocationSupported) == 0x000010, "Member 'FLiveLinkTransformStaticData::bIsLocationSupported' has a wrong offset!");
-static_assert(offsetof(FLiveLinkTransformStaticData, bIsRotationSupported) == 0x000011, "Member 'FLiveLinkTransformStaticData::bIsRotationSupported' has a wrong offset!");
-static_assert(offsetof(FLiveLinkTransformStaticData, bIsScaleSupported) == 0x000012, "Member 'FLiveLinkTransformStaticData::bIsScaleSupported' has a wrong offset!");
 
 // ScriptStruct LiveLinkInterface.LiveLinkCameraStaticData
 // 0x0010 (0x0028 - 0x0018)
@@ -512,6 +498,20 @@ static_assert(alignof(FLiveLinkTimeSynchronizationSettings) == 0x000004, "Wrong 
 static_assert(sizeof(FLiveLinkTimeSynchronizationSettings) == 0x00000C, "Wrong size on FLiveLinkTimeSynchronizationSettings");
 static_assert(offsetof(FLiveLinkTimeSynchronizationSettings, FrameRate) == 0x000000, "Member 'FLiveLinkTimeSynchronizationSettings::FrameRate' has a wrong offset!");
 static_assert(offsetof(FLiveLinkTimeSynchronizationSettings, FrameOffset) == 0x000008, "Member 'FLiveLinkTimeSynchronizationSettings::FrameOffset' has a wrong offset!");
+
+// ScriptStruct LiveLinkInterface.LiveLinkInterpolationSettings
+// 0x0008 (0x0008 - 0x0000)
+struct FLiveLinkInterpolationSettings final
+{
+public:
+	bool                                          bUseInterpolation;                                 // 0x0000(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         InterpolationOffset;                               // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FLiveLinkInterpolationSettings) == 0x000004, "Wrong alignment on FLiveLinkInterpolationSettings");
+static_assert(sizeof(FLiveLinkInterpolationSettings) == 0x000008, "Wrong size on FLiveLinkInterpolationSettings");
+static_assert(offsetof(FLiveLinkInterpolationSettings, bUseInterpolation) == 0x000000, "Member 'FLiveLinkInterpolationSettings::bUseInterpolation' has a wrong offset!");
+static_assert(offsetof(FLiveLinkInterpolationSettings, InterpolationOffset) == 0x000004, "Member 'FLiveLinkInterpolationSettings::InterpolationOffset' has a wrong offset!");
 
 // ScriptStruct LiveLinkInterface.LiveLinkTime
 // 0x0018 (0x0018 - 0x0000)

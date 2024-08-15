@@ -151,6 +151,21 @@ static_assert(offsetof(FGeomComponentCacheParameters, TrailingDataSizeMax) == 0x
 static_assert(offsetof(FGeomComponentCacheParameters, TrailingMinSpeedThreshold) == 0x000044, "Member 'FGeomComponentCacheParameters::TrailingMinSpeedThreshold' has a wrong offset!");
 static_assert(offsetof(FGeomComponentCacheParameters, TrailingMinVolumeThreshold) == 0x000048, "Member 'FGeomComponentCacheParameters::TrailingMinVolumeThreshold' has a wrong offset!");
 
+// ScriptStruct GeometryCollectionEngine.ChaosRemovalEventData
+// 0x0020 (0x0020 - 0x0000)
+struct FChaosRemovalEventData final
+{
+public:
+	struct FVector                                Location;                                          // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Mass;                                              // 0x0018(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ParticleIndex;                                     // 0x001C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FChaosRemovalEventData) == 0x000008, "Wrong alignment on FChaosRemovalEventData");
+static_assert(sizeof(FChaosRemovalEventData) == 0x000020, "Wrong size on FChaosRemovalEventData");
+static_assert(offsetof(FChaosRemovalEventData, Location) == 0x000000, "Member 'FChaosRemovalEventData::Location' has a wrong offset!");
+static_assert(offsetof(FChaosRemovalEventData, Mass) == 0x000018, "Member 'FChaosRemovalEventData::Mass' has a wrong offset!");
+static_assert(offsetof(FChaosRemovalEventData, ParticleIndex) == 0x00001C, "Member 'FChaosRemovalEventData::ParticleIndex' has a wrong offset!");
+
 // ScriptStruct GeometryCollectionEngine.GeometryCollectionDebugDrawActorSelectedRigidBody
 // 0x0018 (0x0018 - 0x0000)
 struct FGeometryCollectionDebugDrawActorSelectedRigidBody final
@@ -166,21 +181,6 @@ static_assert(sizeof(FGeometryCollectionDebugDrawActorSelectedRigidBody) == 0x00
 static_assert(offsetof(FGeometryCollectionDebugDrawActorSelectedRigidBody, ID) == 0x000000, "Member 'FGeometryCollectionDebugDrawActorSelectedRigidBody::ID' has a wrong offset!");
 static_assert(offsetof(FGeometryCollectionDebugDrawActorSelectedRigidBody, Solver) == 0x000008, "Member 'FGeometryCollectionDebugDrawActorSelectedRigidBody::Solver' has a wrong offset!");
 static_assert(offsetof(FGeometryCollectionDebugDrawActorSelectedRigidBody, GeometryCollection) == 0x000010, "Member 'FGeometryCollectionDebugDrawActorSelectedRigidBody::GeometryCollection' has a wrong offset!");
-
-// ScriptStruct GeometryCollectionEngine.ChaosRemovalEventData
-// 0x0020 (0x0020 - 0x0000)
-struct FChaosRemovalEventData final
-{
-public:
-	struct FVector                                Location;                                          // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Mass;                                              // 0x0018(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ParticleIndex;                                     // 0x001C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FChaosRemovalEventData) == 0x000008, "Wrong alignment on FChaosRemovalEventData");
-static_assert(sizeof(FChaosRemovalEventData) == 0x000020, "Wrong size on FChaosRemovalEventData");
-static_assert(offsetof(FChaosRemovalEventData, Location) == 0x000000, "Member 'FChaosRemovalEventData::Location' has a wrong offset!");
-static_assert(offsetof(FChaosRemovalEventData, Mass) == 0x000018, "Member 'FChaosRemovalEventData::Mass' has a wrong offset!");
-static_assert(offsetof(FChaosRemovalEventData, ParticleIndex) == 0x00001C, "Member 'FChaosRemovalEventData::ParticleIndex' has a wrong offset!");
 
 // ScriptStruct GeometryCollectionEngine.ChaosBreakingEventData
 // 0x0038 (0x0038 - 0x0000)
@@ -239,6 +239,16 @@ static_assert(offsetof(FChaosCollisionEventData, Velocity2) == 0x000048, "Member
 static_assert(offsetof(FChaosCollisionEventData, Mass1) == 0x000060, "Member 'FChaosCollisionEventData::Mass1' has a wrong offset!");
 static_assert(offsetof(FChaosCollisionEventData, Mass2) == 0x000064, "Member 'FChaosCollisionEventData::Mass2' has a wrong offset!");
 static_assert(offsetof(FChaosCollisionEventData, Impulse) == 0x000068, "Member 'FChaosCollisionEventData::Impulse' has a wrong offset!");
+
+// ScriptStruct GeometryCollectionEngine.GeometryCollectionDebugDrawWarningMessage
+// 0x0001 (0x0001 - 0x0000)
+struct FGeometryCollectionDebugDrawWarningMessage final
+{
+public:
+	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FGeometryCollectionDebugDrawWarningMessage) == 0x000001, "Wrong alignment on FGeometryCollectionDebugDrawWarningMessage");
+static_assert(sizeof(FGeometryCollectionDebugDrawWarningMessage) == 0x000001, "Wrong size on FGeometryCollectionDebugDrawWarningMessage");
 
 // ScriptStruct GeometryCollectionEngine.GeometryCollectionRepData
 // 0x0028 (0x0028 - 0x0000)
@@ -349,16 +359,6 @@ static_assert(offsetof(FChaosTrailingEventRequestSettings, MinSpeed) == 0x000008
 static_assert(offsetof(FChaosTrailingEventRequestSettings, MinAngularSpeed) == 0x00000C, "Member 'FChaosTrailingEventRequestSettings::MinAngularSpeed' has a wrong offset!");
 static_assert(offsetof(FChaosTrailingEventRequestSettings, MaxDistance) == 0x000010, "Member 'FChaosTrailingEventRequestSettings::MaxDistance' has a wrong offset!");
 static_assert(offsetof(FChaosTrailingEventRequestSettings, SortMethod) == 0x000014, "Member 'FChaosTrailingEventRequestSettings::SortMethod' has a wrong offset!");
-
-// ScriptStruct GeometryCollectionEngine.GeometryCollectionDebugDrawWarningMessage
-// 0x0001 (0x0001 - 0x0000)
-struct FGeometryCollectionDebugDrawWarningMessage final
-{
-public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FGeometryCollectionDebugDrawWarningMessage) == 0x000001, "Wrong alignment on FGeometryCollectionDebugDrawWarningMessage");
-static_assert(sizeof(FGeometryCollectionDebugDrawWarningMessage) == 0x000001, "Wrong size on FGeometryCollectionDebugDrawWarningMessage");
 
 // ScriptStruct GeometryCollectionEngine.GeometryCollectionSource
 // 0x00A0 (0x00A0 - 0x0000)
